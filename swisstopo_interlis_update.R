@@ -1,7 +1,7 @@
 #  check for updates in swisstopo's INTERLIS
 #
 #     Huriel Reichel - huriel.ruan@gmail.com
-#     Copyright (c) 2020 STDL, Swiss Territorial Data Lab
+#     Copyright (c) 2020 Republic and Canton of Geneva
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
