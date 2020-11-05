@@ -22,10 +22,10 @@ old_meta <- read.table("/media/huriel/Seagate Expansion Drive/temporal_interlis/
 head(old_meta)
 
 # get only TG and GE data
-old_meta$V3 <- substr(meta$V1,1,nchar(meta$V1)-8)
-old_TG <- old_meta[ which(old_meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/SHP/TG/"), ]
+old_meta$V3 <- substr(old_meta$V1,1,nchar(old_meta$V1)-8)
+old_TG <- old_meta[ which(old_meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/ITF/TG/"), ]
 max(old_TG$V2)
-old_GE <- old_meta[ which(old_meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/SHP/GE/"), ]
+old_GE <- old_meta[ which(old_meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/ITF/GE/"), ]
 max(old_GE$V2)
 
 # read new meta
@@ -33,23 +33,23 @@ meta <- read.table(url("https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-verme
 
 # get only TG and GE data
 meta$V3 <- substr(meta$V1,1,nchar(meta$V1)-8)
-TG <- meta[ which(meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/SHP/TG/"), ]
-GE <- meta[ which(meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/SHP/GE/"), ]
+TG <- meta[ which(meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/ITF/TG/"), ]
+GE <- meta[ which(meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/ITF/GE/"), ]
 
 # Check for updates
 max(TG$V2)
 max(TG$V2)
 
 # If there are updates, subset to get only TG and GE and check for the number of updates
-actual_TG <- meta[ which(meta$V2==max(meta$V2) & meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/SHP/TG/"), ]
-actual_GE <- meta[ which(meta$V2==max(meta$V2) & meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/SHP/GE/"), ]
+actual_TG <- meta[ which(meta$V2==max(meta$V2) & meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/ITF/TG/"), ]
+actual_GE <- meta[ which(meta$V2==max(meta$V2) & meta$V3 == "https://data.geo.admin.ch/ch.swisstopo-vd.amtliche-vermessung/DM01AVCH24D/ITF/GE/"), ]
 nrow(actual_TG)
 nrow(actual_GE)
 
 # Create links only file
 # CHECK OUTPUT!
-write.table(TG$V1, "/media/huriel/Seagate Expansion Drive/temporal_interlis/23_10_2020/meta_only_links_TG.txt", col.names = F, row.names = F, quote = F)
-write.table(GE$V1, "/media/huriel/Seagate Expansion Drive/temporal_interlis/23_10_2020/meta_only_links_GE.txt", col.names = F, row.names = F, quote = F)
+write.table(TG$V1, "/media/huriel/Seagate Expansion Drive/temporal_interlis/05_11_2020/meta_only_links_TG.txt", col.names = F, row.names = F, quote = F)
+write.table(GE$V1, "/media/huriel/Seagate Expansion Drive/temporal_interlis/05_11_2020/meta_only_links_GE.txt", col.names = F, row.names = F, quote = F)
 
 # Save the last updated meta.txt file to future comparison
-write.table(meta[,1:2], "/media/huriel/Seagate Expansion Drive/temporal_interlis/23_10_2020/meta.txt" )
+write.table(meta[,1:2], "/media/huriel/Seagate Expansion Drive/temporal_interlis/05_11_2020/meta.txt" )
