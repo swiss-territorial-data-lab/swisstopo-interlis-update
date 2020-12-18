@@ -22,4 +22,8 @@ Copyright (c) 2020 Republic and Canton of Geneva
 
 This program is licensed under the terms of the GNU GPLv3. Documentation and illustrations are licensed under the terms of the CC BY-NC-SA.
 
+# Dependencies
 
+R 3.6.3 or superior and any IDE to run the code, usually RStudio or Emacs.
+
+No CRAN or standalone packages are necessary, only R base.
